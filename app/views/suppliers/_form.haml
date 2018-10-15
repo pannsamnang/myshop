@@ -1,0 +1,6 @@
+= simple_form_for(@supplier) do |f|
+  = f.input :name, wrapper_html: { class: 'input-field'}
+  = f.input :address, wrapper_html: { class: 'input-field'}, input_html: { class: 'materialize-textarea'}
+
+  = f.submit class: 'btn primary-background'
+  = link_to t('form.cancel'), variant_types_path, class: 'btn grey'

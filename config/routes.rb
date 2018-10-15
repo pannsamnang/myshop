@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :suppliers
   resources :variant_types do
     resources :variant_values
   end

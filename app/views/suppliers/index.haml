@@ -1,0 +1,19 @@
+%h1.center= t('suppliers')
+
+= link_to new_supplier_path(), class: 'btn-floating btn-large waves-effect waves-light primary-background btn-sticky' do
+  %i.material-icons
+    add
+%table.responsive-table
+  %thead
+    %tr
+      %th Name
+      %th Action
+  %tbody
+    - @suppliers.each do |supplier|
+      %tr
+        %td= link_to supplier.name, supplier
+        %td
+          = link_to edit_supplier_path(supplier), { class: 'link' } do
+            %i.material-icons mode_edit
+          = link_to supplier_path(supplier), { class: 'link', data: { method: 'delete', confirm: t('are_you_sure') }} do
+            %i.material-icons delete
