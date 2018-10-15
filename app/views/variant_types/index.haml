@@ -1,0 +1,19 @@
+%h1.center= t('variant_types')
+
+= link_to new_variant_type_path(), class: 'btn-floating btn-large waves-effect waves-light primary-background btn-sticky' do
+  %i.material-icons
+    add
+%table.responsive-table
+  %thead
+    %tr
+      %th Name
+      %th Action
+  %tbody
+    - @variant_types.each do |variant_type|
+      %tr
+        %td= link_to variant_type.name, variant_type
+        %td
+          = link_to edit_variant_type_path(variant_type), { class: 'link' } do
+            %i.material-icons mode_edit
+          = link_to variant_type_path(variant_type), { class: 'link', data: { method: 'delete', confirm: t('are_you_sure') }} do
+            %i.material-icons delete

@@ -1,0 +1,4 @@
+= simple_form_for(@category) do |f|
+  = f.input :name, wrapper_html: { class: 'input-field' }
+  = f.submit class: 'btn primary-background'
+  = link_to t('form.cancel'), categories_path, class: 'btn grey'

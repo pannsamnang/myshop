@@ -1,0 +1,25 @@
+.row
+  %h1.center= t('categories')
+  = link_to new_category_path(), class: 'btn-floating btn-large waves-effect waves-light primary-background btn-sticky' do
+    %i.material-icons
+      add
+  .col.s12
+    - if @categories.count > 0
+      %table.responsive-table
+        %thead
+          %tr
+            %th Name
+            %th Action
+        %tbody
+        - @categories.each do |category|
+          %tr
+            %td= category.name
+            %td
+              = link_to edit_category_path(category), { class: 'link' } do
+                %i.material-icons mode_edit
+              = link_to category_path(category), { class: 'link', data: { method: 'delete', confirm: t('are_you_sure') }} do
+                %i.material-icons delete
+    - else
+      No category
+  .col.s12.center
+    = paginate @categories

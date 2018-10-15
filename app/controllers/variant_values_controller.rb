@@ -1,0 +1,2 @@
+class VariantValuesController < ApplicationController
+end

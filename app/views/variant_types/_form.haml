@@ -1,0 +1,13 @@
+= simple_form_for(@variant_type) do |f|
+  = f.input :name, wrapper_html: { class: 'input-field' }
+  .card.spacing-top
+    .card-title.card-header
+      = t('.variant_values')
+      = link_to_add_association f, :variant_values, { 'data-association-insertion-method' => 'prepend', 'data-association-insertion-node' => '#variant_values', class: 'title-with-action right btn waves-effect waves-light' } do
+        %i.material-icons.action-icon
+          add
+    #variant_values
+      = f.simple_fields_for :variant_values do |variant_value|
+        = render 'variant_value_fields', f: variant_value
+  = f.submit class: 'btn primary-background'
+  = link_to t('form.cancel'), variant_types_path, class: 'btn grey'

@@ -1,0 +1,23 @@
+%nav
+  .nav-wrapper
+    %a.brand-logo{:href => "#!"} Logo
+    %a.sidenav-trigger{"data-target" => "mobile-demo", :href => "#"}
+      %i.material-icons menu
+    %ul.right.hide-on-med-and-down
+      %li
+        =link_to t('categories'), categories_path
+      %li
+        =link_to t('variant_types'), variant_types_path
+      %li
+        %a{:href => "collapsible.html"} Javascript
+      %li
+        %a{:href => "mobile.html"} Mobile
+%ul#mobile-demo.sidenav
+  %li
+    =link_to t('categories'), categories_path
+  %li
+    =link_to t('variant_types'), variant_types_path
+  %li
+    %a{:href => "collapsible.html"} Javascript
+  %li
+    %a{:href => "mobile.html"} Mobile

@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %title= "Wikiupedia - #{yield(:page_title)}"
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %meta{:content => "#d32F2f", :name => "theme-color"}/
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body{id: "#{controller_name}-#{params[:action]}"}
+    = render 'shared/navigation'
+    .container
+      = yield
+      = render :partial => 'shared/message_flash'
